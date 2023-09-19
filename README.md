@@ -46,8 +46,8 @@ reset rimuove tutte le celle dal container (container), reimpostando così il ca
 
 const squares = document.querySelectorAll('.square'); seleziona tutte le celle con la classe CSS ".square".
 squares.forEach(square => square.removeEventListener('click', handleClick)); rimuove l'event listener per il clic da ciascuna cella, impedendo ulteriori interazioni con il campo minato.
-const clicksBeforeBomb = cellsClicked - 1; calcola il numero di celle cliccate prima di colpire una bomba.
-Se il gioco è stato perso, viene mostrato un messaggio di avviso con il numero di clic precedenti alla bomba e le bombe vengono evidenziate in giallo. L'alert include il messaggio "Hai perso!" seguito dal numero di punti ottenuti.
+const clicksBeforeBomb = cellsClicked; calcola il numero di celle cliccate prima di colpire una bomba.
+Se il gioco è stato perso, viene mostrato un messaggio di avviso con il numero di clic precedenti alla bomba e le bombe vengono evidenziate in rosso. L'alert include il messaggio "Hai perso!" seguito dal numero di punti ottenuti.
 Se il gioco è stato vinto, viene mostrato un messaggio di vittoria con l'alert "Hai vinto!".
 
 **9** Funzione handleClick per gestire il clic su una cella:
@@ -62,7 +62,7 @@ La classe CSS "clicked" viene aggiunta alla cella (this.classList.add('clicked')
 Incrementa il conteggio delle celle cliccate (cellsClicked).
 Se hai cliccato su tutte le celle non bombe (il numero di celle cliccate è uguale al numero di celle totali meno il numero di bombe), viene chiamata la funzione endGame(true) per dichiarare la vittoria.
 
-**TO DO** 
+**TO DO**
 Bonus:
 Aggiungere una select accanto al bottone di generazione, che fornisca una scelta tra tre diversi livelli di difficoltà:
 - difficoltà 1 ⇒ 100 caselle, con un numero compreso tra 1 e 100, divise in 10 caselle per 10 righe;

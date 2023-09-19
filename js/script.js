@@ -77,24 +77,21 @@ function endGame(isWin) {
   const squares = document.querySelectorAll('.square');
   squares.forEach(square => square.removeEventListener('click', handleClick));
 
-  // Calcoliamo il numero di caselle cliccate prima di colpire una bomba
-  const clicksBeforeBomb = cellsClicked;
+  const clicksBeforeBomb = cellsClicked - 1;
 
-  // Se non hai vinto, mostriamo tutte le bombe e il numero di clic precedenti alla bomba
   if (!isWin) {
-      bombPositions.forEach(position => {
-          const square = document.querySelector(`.square[squareID="${position}"]`);
-          if (square) {
-              square.style.backgroundColor = 'yellow';
-          }
-      });
+    // Trova e colora di rosso tutte le celle contenenti bombe
+    squares.forEach(square => {
+      if (bombPositions.includes(square.squareID)) {
+        square.style.backgroundColor = 'red';
+        }
+    });
 
-      alert(`Hai perso! Hai totalizzato ${clicksBeforeBomb} punti.`);
+      alert(`Hai perso! Hai totalizzato ${clicksBeforeBomb +1} punti.`);
   } else {
       alert('Hai vinto!');
   }
 }
-
 // Funzione per gestire il clic su una cella
 function handleClick() {
     const squareID = this.squareID;
