@@ -78,7 +78,7 @@ function endGame(isWin) {
   squares.forEach(square => square.removeEventListener('click', handleClick));
 
   // Calcoliamo il numero di caselle cliccate prima di colpire una bomba
-  const clicksBeforeBomb = cellsClicked - 1; // Sottraiamo 1 perché la bomba è stata colpita
+  const clicksBeforeBomb = cellsClicked;
 
   // Se non hai vinto, mostriamo tutte le bombe e il numero di clic precedenti alla bomba
   if (!isWin) {
@@ -89,7 +89,7 @@ function endGame(isWin) {
           }
       });
 
-      alert(`Hai perso! Hai totalizzato ${clicksBeforeBomb +1} punti.`);
+      alert(`Hai perso! Hai totalizzato ${clicksBeforeBomb} punti.`);
   } else {
       alert('Hai vinto!');
   }

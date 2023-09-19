@@ -46,7 +46,7 @@ reset rimuove tutte le celle dal container (container), reimpostando così il ca
 
 const squares = document.querySelectorAll('.square'); seleziona tutte le celle con la classe CSS ".square".
 squares.forEach(square => square.removeEventListener('click', handleClick)); rimuove l'event listener per il clic da ciascuna cella, impedendo ulteriori interazioni con il campo minato.
-const clicksBeforeBomb = cellsClicked - 1; calcola il numero di celle cliccate prima di colpire una bomba. Sottraiamo 1 perché la bomba è stata colpita.
+const clicksBeforeBomb = cellsClicked - 1; calcola il numero di celle cliccate prima di colpire una bomba.
 Se il gioco è stato perso, viene mostrato un messaggio di avviso con il numero di clic precedenti alla bomba e le bombe vengono evidenziate in giallo. L'alert include il messaggio "Hai perso!" seguito dal numero di punti ottenuti.
 Se il gioco è stato vinto, viene mostrato un messaggio di vittoria con l'alert "Hai vinto!".
 
