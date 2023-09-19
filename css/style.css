@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-wrapper {
+  height: calc(100vh - 70px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: cadetblue;
+}
+
+.container-cs {
+  width: 600px;
+  height: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: brown;
+}
+
+#level {
+  width: 300px;
+}
+
+.square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+  width: calc(100% / 10);
+  aspect-ratio: 1 / 1;
+}
+
+/* .square100{
+  width: calc(100% / 10);
+  height: calc(100% / 10);
+}
+
+.square81{
+  width: calc(100% / 9);
+  height: calc(100% / 9);
+}
+
+.square49{
+  width: calc(100% / 7);
+  height: calc(100% / 7);
+} */
+
+.square.clicked {
+  background-color: cyan;
+}
