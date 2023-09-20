@@ -70,6 +70,4 @@ Bonus:
 
 Update grafici:
 - Spostare gli allert del risultato in un div in modo da comparire nella pagina.
-- Nascondere il container, finche non viene premuto il pulsante Play, al suo posto inserire della grafica.
 - Sistemare il responsive della pagina.
-- Scegliere colori un pò meno tristi.

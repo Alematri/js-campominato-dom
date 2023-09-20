@@ -87,25 +87,29 @@ function reset() {
 
 // Funzione per terminare il gioco
 function endGame(isWin) {
-  // Blocciamo la griglia rimuovendo l'event listener per il clic su ogni cella
-  const squares = document.querySelectorAll('.square');
-  squares.forEach(square => square.removeEventListener('click', handleClick));
-
-  const clicksBeforeBomb = cellsClicked;
-
-  if (!isWin) {
-    // Trova e colora di rosso tutte le celle contenenti bombe
-    squares.forEach(square => {
-      if (bombPositions.includes(square.squareID)) {
-        square.classList.add('bomb');
+    // Blocchiamo la griglia rimuovendo l'event listener per il clic su ogni cella
+    const squares = document.querySelectorAll('.square');
+    for (let i = 0; i < squares.length; i++) {
+      const square = squares[i];
+      square.removeEventListener('click', handleClick);
+    }
+  
+    const clicksBeforeBomb = cellsClicked;
+  
+    if (!isWin) {
+      // Trova e colora di rosso tutte le celle contenenti bombe
+      for (let i = 0; i < squares.length; i++) {
+        const square = squares[i];
+        if (bombPositions.includes(square.squareID)) {
+          square.classList.add('bomb');
         }
-    });
-
+      }
+  
       alert(`Hai perso! Hai totalizzato ${clicksBeforeBomb} punti.`);
-  } else {
+    } else {
       alert('Hai vinto!');
+    }
   }
-}
 
 // Funzione per gestire il clic su una cella
 function handleClick() {
