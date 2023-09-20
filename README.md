@@ -1,4 +1,4 @@
-Griglia Campo
+Campo Minato
 ===
 ## Consegna
 Consegna
@@ -64,7 +64,6 @@ Se hai cliccato su tutte le celle non bombe (il numero di celle cliccate è ugua
 
 **TO DO**
 Bonus:
-Aggiungere una select accanto al bottone di generazione, che fornisca una scelta tra tre diversi livelli di difficoltà:
 - difficoltà 1 ⇒ 100 caselle, con un numero compreso tra 1 e 100, divise in 10 caselle per 10 righe;
 - difficoltà 2 ⇒ 81 caselle, con un numero compreso tra 1 e 81, divise in 9 caselle per 9 righe;
 - difficoltà 3 ⇒ 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;

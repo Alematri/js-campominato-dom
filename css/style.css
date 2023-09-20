@@ -5,11 +5,15 @@
 }
 
 .main-wrapper {
-  height: calc(100vh - 70px);
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: cadetblue;
+  background-image: url("../img/pixelbackground.png");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+
 }
 
 .container-cs {
@@ -17,21 +21,40 @@
   height: 600px;
   display: flex;
   flex-wrap: wrap;
-  background-color: brown;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+#top-bar{
+  position: fixed;
+  width: 100%;
 }
 
 #level {
   width: 300px;
 }
 
+.square.clicked {
+  background-color: rgba(188, 230, 133, 0.5);
+}
+
 .square {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid white;
-  width: calc(100% / 10);
+  border: 1px solid rgba(255, 255, 255, .4);
+  width: calc(100% / 10); /* <--- Remove for BONUS */
   aspect-ratio: 1 / 1;
 }
+
+.bomb{
+  background-image: url('../img/pixelmine.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+/* Add for BONUS */
 
 /* .square100{
   width: calc(100% / 10);
@@ -47,7 +70,3 @@
   width: calc(100% / 7);
   height: calc(100% / 7);
 } */
-
-.square.clicked {
-  background-color: cyan;
-}

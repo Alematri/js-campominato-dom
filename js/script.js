@@ -1,15 +1,23 @@
 // Variabili globali
-const container = document.querySelector('.container-cs'); // Selezioniamo il container delle celle
-const levelSelect = document.getElementById('level'); // Selezioniamo il menu a discesa per la difficoltà
-const playButton = document.getElementById('play'); // Selezioniamo il pulsante "Play"
-let numCells, numRows, numBombs, bombPositions, cellsClicked; // Variabili per il gioco
+
+ // Selezioniamo il container delle celle
+const container = document.querySelector('.container-cs');
+// Selezioniamo il menu a discesa per la difficoltà
+const levelSelect = document.getElementById('level'); 
+// Selezioniamo il pulsante "Play"
+const playButton = document.getElementById('play');
+// Variabili per il gioco
+let numCells, numRows, numBombs, bombPositions, cellsClicked; 
 
 // Aggiungiamo un event listener al pulsante "Play" che avvierà il gioco
 playButton.addEventListener('click', startGame);
 
 // Funzione per iniziare il gioco
 function startGame() {
-    const selectedLevel = parseInt(levelSelect.value); // Otteniamo il livello di difficoltà selezionato come un numero intero
+     // Facciamo comparire il container delle celle
+    container.classList.remove('d-none');
+     // Otteniamo il livello di difficoltà selezionato come un numero intero
+    const selectedLevel = parseInt(levelSelect.value);
 
     // Impostazioni in base alla difficoltà selezionata
     if (selectedLevel === 1) {
@@ -26,8 +34,10 @@ function startGame() {
         numBombs = 16;
     }
 
-    bombPositions = generateBombPositions(numCells, numBombs); // Generiamo le posizioni delle bombe
-    cellsClicked = 0; // Inizializziamo il conteggio delle celle cliccate a 0
+     // Generiamo le posizioni delle bombe
+    bombPositions = generateBombPositions(numCells, numBombs);
+     // Inizializziamo il conteggio delle celle cliccate a 0
+    cellsClicked = 0;
 
     reset(); // Reimpostiamo il gioco
     init(); // Inizializziamo il gioco
@@ -51,24 +61,28 @@ function generateBombPositions(totalCells, totalBombs) {
 function init() {
     for (let i = 1; i <= numCells; i++) {
         const square = createSquare(i);
-
-        square.addEventListener('click', handleClick); // Aggiungiamo un event listener per il clic su ogni cella
-
-        container.appendChild(square); // Aggiungiamo la cella al container
+         // Aggiungiamo un event listener per il clic su ogni cella
+        square.addEventListener('click', handleClick);
+         // Aggiungiamo la cella al container
+        container.appendChild(square);
     }
 }
 
 // Funzione per creare una cella
 function createSquare(i) {
-    const newSquare = document.createElement('div'); // Creiamo un elemento div per la cella
-    newSquare.className = 'square'; // Assegnamo la classe CSS .square
-    newSquare.squareID = i; // Assegnamo un identificatore univoco alla cella
+    // Creiamo un elemento div per la cella
+    const newSquare = document.createElement('div');
+    // Assegnamo la classe CSS .square
+    newSquare.className = 'square'; 
+    // Assegnamo un identificatore univoco alla cella
+    newSquare.squareID = i; 
     return newSquare;
 }
 
 // Funzione per ripristinare il gioco
 function reset() {
-    container.innerHTML = ''; // Rimuoviamo tutte le celle dal container
+    // Rimuoviamo tutte le celle dal container
+    container.innerHTML = ''; 
 }
 
 // Funzione per terminare il gioco
@@ -77,30 +91,32 @@ function endGame(isWin) {
   const squares = document.querySelectorAll('.square');
   squares.forEach(square => square.removeEventListener('click', handleClick));
 
-  const clicksBeforeBomb = cellsClicked - 1;
+  const clicksBeforeBomb = cellsClicked;
 
   if (!isWin) {
     // Trova e colora di rosso tutte le celle contenenti bombe
     squares.forEach(square => {
       if (bombPositions.includes(square.squareID)) {
-        square.style.backgroundColor = 'red';
+        square.classList.add('bomb');
         }
     });
 
-      alert(`Hai perso! Hai totalizzato ${clicksBeforeBomb +1} punti.`);
+      alert(`Hai perso! Hai totalizzato ${clicksBeforeBomb} punti.`);
   } else {
       alert('Hai vinto!');
   }
 }
+
 // Funzione per gestire il clic su una cella
 function handleClick() {
     const squareID = this.squareID;
 
     if (bombPositions.includes(squareID)) {
         // Hai cliccato su una bomba, il gioco finisce
-        this.style.backgroundColor = 'red';
+        this.classList.add('bomb');
         endGame(false);
-        return; // Termina la funzione per evitare ulteriori azioni
+        // Termina la funzione per evitare ulteriori azioni
+        return; 
     }
 
     // Non è una bomba, continua il gioco
